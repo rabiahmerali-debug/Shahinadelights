@@ -781,6 +781,13 @@ function handleSubmit(e) {
 
   const whatsappURL = `https://wa.me/16476156029?text=${encodeURIComponent(text)}`;
   window.location.href = whatsappURL;
+ function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = "Sent — we'll be in touch soon.";
+  btn.style.opacity = '0.6';
+  btn.disabled = true;
+}
 }
 </script>
 </body>
