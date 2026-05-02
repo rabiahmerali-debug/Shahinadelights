@@ -762,10 +762,25 @@ function switchTab(btn, cat) {
 }
 function handleSubmit(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  btn.textContent = "Sent — we'll be in touch soon.";
-  btn.style.opacity = '0.6';
-  btn.disabled = true;
+  const name = document.getElementById('name').value;
+  const phone = document.getElementById('phone').value;
+  const date = document.getElementById('date').value;
+  const guests = document.getElementById('guests').value;
+  const pkg = document.getElementById('pkg').value;
+  const message = document.getElementById('message').value;
+
+  const text = `Hello Shahina Delights! 👋
+
+*New Inquiry*
+👤 Name: ${name}
+📞 Phone: ${phone}
+📅 Event Date: ${date}
+👥 Guests: ${guests}
+📦 Package: ${pkg}
+💬 Message: ${message}`;
+
+  const whatsappURL = `https://wa.me/16474466029?text=${encodeURIComponent(text)}`;
+  window.open(whatsappURL, '_blank');
 }
 </script>
 </body>
