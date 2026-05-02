@@ -738,12 +738,11 @@
   <span class="footer-meta">© 2026 Shahina Delights · Richmond Hill, ON</span>
 </footer>
 
-<script>
+ <script>
 function scrollTo(id) {
   document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
 }
 
-// Intercept all anchor clicks that point to #section IDs
 document.addEventListener('click', function(e) {
   const a = e.target.closest('a[href^="#"]');
   if (!a) return;
@@ -760,6 +759,7 @@ function switchTab(btn, cat) {
   btn.classList.add('active');
   document.getElementById('cat-' + cat).classList.add('active');
 }
+
 function handleSubmit(e) {
   e.preventDefault();
   const name = document.getElementById('name').value;
@@ -768,26 +768,8 @@ function handleSubmit(e) {
   const guests = document.getElementById('guests').value;
   const pkg = document.getElementById('pkg').value;
   const message = document.getElementById('message').value;
-
-  const text = `Hello Shahina Delights! 👋
-
-*New Inquiry*
-👤 Name: ${name}
-📞 Phone: ${phone}
-📅 Event Date: ${date}
-👥 Guests: ${guests}
-📦 Package: ${pkg}
-💬 Message: ${message}`;
-
-  const whatsappURL = `https://wa.me/16476156029?text=${encodeURIComponent(text)}`;
-  window.location.href = whatsappURL;
- function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  btn.textContent = "Sent — we'll be in touch soon.";
-  btn.style.opacity = '0.6';
-  btn.disabled = true;
-}
+  const text = `Hello Shahina Delights! 👋\n\n*New Inquiry*\n👤 Name: ${name}\n📞 Phone: ${phone}\n📅 Event Date: ${date}\n👥 Guests: ${guests}\n📦 Package: ${pkg}\n💬 Message: ${message}`;
+  window.location.href = `https://wa.me/16476156029?text=${encodeURIComponent(text)}`;
 }
 </script>
 </body>
