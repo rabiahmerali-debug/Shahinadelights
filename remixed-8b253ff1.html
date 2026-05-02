@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shahina Delights — West African & Indian Catering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --brown:       #7B4F2E;
+    --brown-mid:   #A0673A;
+    --brown-light: #F0E4D7;
+    --brown-xlight:#FAF4EE;
+    --espresso:    #1A0F07;
+    --sand:        #D9C4AE;
+    --beige:       #F5EDE3;
+    --cream:       #FBF7F3;
+    --warm-white:  #FEFCFA;
+    --muted:       #927C6A;
+    --border:      rgba(123,79,46,0.13);
+    --font-display:'Cormorant Garamond', Georgia, serif;
+    --font-body:   'Outfit', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--warm-white);
+    color: var(--espresso);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 5vw;
+    background: rgba(254,252,250,0.94);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.45rem; font-weight: 700;
+    color: var(--espresso); text-decoration: none;
+  }
+  .nav-logo span { color: var(--brown); }
+  .nav-links { display: flex; gap: 2.25rem; list-style: none; align-items: center; }
+  .nav-links a {
+    font-size: 0.85rem; font-weight: 400;
+    color: var(--muted); text-decoration: none;
+    letter-spacing: 0.03em; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--espresso); }
+  .nav-cta {
+    background: var(--espresso) !important;
+    color: var(--cream) !important;
+    padding: 0.5rem 1.2rem !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+    font-size: 0.85rem !important;
+    transition: opacity 0.2s !important;
+  }
+  .nav-cta:hover { opacity: 0.82 !important; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding-top: 68px; overflow: hidden;
+    background: var(--warm-white);
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 5rem 7vw; max-width: 780px;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--brown);
+    margin-bottom: 2rem;
+  }
+  .hero-badge::before { content: ''; width: 28px; height: 1px; background: var(--brown); display: block; }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5.5vw, 5rem);
+    font-weight: 600; line-height: 1.06;
+    color: var(--espresso); letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+  }
+  .hero-title em { font-style: italic; color: var(--brown-mid); }
+  .hero-sub {
+    font-size: 1rem; color: var(--muted); font-weight: 300;
+    max-width: 400px; margin-bottom: 2.75rem; line-height: 1.85;
+  }
+  .hero-actions { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--espresso); color: var(--cream);
+    padding: 0.75rem 1.75rem; border-radius: 6px;
+    font-size: 0.875rem; font-weight: 500;
+    text-decoration: none; transition: opacity 0.2s;
+    display: inline-block; font-family: var(--font-body);
+  }
+  .btn-primary:hover { opacity: 0.82; }
+  .btn-outline {
+    background: transparent; color: var(--espresso);
+    padding: 0.75rem 1.75rem; border-radius: 6px;
+    border: 1px solid var(--sand);
+    font-size: 0.875rem; font-weight: 500;
+    text-decoration: none; transition: border-color 0.2s;
+    display: inline-block; font-family: var(--font-body);
+  }
+  .btn-outline:hover { border-color: var(--espresso); }
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-top: 3.5rem;
+    padding-top: 2rem; border-top: 1px solid var(--border);
+  }
+  .hero-stat-val {
+    font-family: var(--font-display);
+    font-size: 2.2rem; font-weight: 700; color: var(--espresso);
+    display: block; line-height: 1;
+  }
+  .hero-stat-label { font-size: 0.77rem; color: var(--muted); margin-top: 0.35rem; font-weight: 300; }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 7rem 7vw; }
+  .section-eyebrow {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--brown);
+    margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;
+  }
+  .section-eyebrow::before { content: ''; width: 22px; height: 1px; background: var(--brown); }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 3.5vw, 3.25rem);
+    font-weight: 600; line-height: 1.12;
+    letter-spacing: -0.01em; color: var(--espresso);
+    margin-bottom: 1.25rem;
+  }
+  .section-sub { color: var(--muted); font-size: 1rem; font-weight: 300; max-width: 500px; line-height: 1.85; }
+
+  /* ── STORY ── */
+  #story {
+    background: var(--beige);
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 7rem; align-items: center;
+  }
+  .story-visual {
+    background: var(--espresso);
+    border-radius: 4px; min-height: 440px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .story-visual::after {
+    content: ''; position: absolute;
+    bottom: 0; left: 0; right: 0; height: 3px;
+    background: var(--brown-mid);
+  }
+  .story-quote { position: relative; z-index: 2; text-align: center; padding: 3.5rem 3rem; }
+  .story-quote-mark {
+    font-family: var(--font-display);
+    font-size: 7rem; color: var(--brown-mid);
+    line-height: 0.4; display: block; margin-bottom: 2rem; opacity: 0.6;
+  }
+  .story-quote p {
+    font-family: var(--font-display);
+    font-size: 1.45rem; font-style: italic;
+    line-height: 1.6; color: rgba(255,255,255,0.82);
+  }
+  .story-pillars { margin-top: 2.75rem; display: flex; flex-direction: column; }
+  .story-pillar {
+    display: flex; gap: 1.25rem; align-items: flex-start;
+    padding: 1.1rem 0; border-bottom: 1px solid var(--border);
+  }
+  .story-pillar:first-child { border-top: 1px solid var(--border); }
+  .story-pillar-num {
+    font-family: var(--font-display);
+    font-size: 1.1rem; color: var(--brown);
+    font-weight: 600; min-width: 24px; margin-top: 1px;
+  }
+  .story-pillar h4 { font-size: 0.9rem; font-weight: 500; margin-bottom: 0.15rem; }
+  .story-pillar p { font-size: 0.82rem; color: var(--muted); font-weight: 300; }
+
+  /* ── MENU ── */
+  #menu { background: var(--warm-white); }
+  .menu-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; }
+  .menu-tabs {
+    display: flex; gap: 0;
+    border: 1px solid var(--border); border-radius: 6px;
+    overflow: hidden; width: fit-content; margin-bottom: 2.5rem;
+  }
+  .menu-tab {
+    padding: 0.5rem 1.15rem; border: none; border-right: 1px solid var(--border);
+    font-size: 0.8rem; font-weight: 400; cursor: pointer;
+    background: transparent; color: var(--muted);
+    transition: all 0.18s; font-family: var(--font-body);
+  }
+  .menu-tab:last-child { border-right: none; }
+  .menu-tab:hover { color: var(--espresso); background: var(--brown-xlight); }
+  .menu-tab.active { background: var(--espresso); color: var(--cream); font-weight: 500; }
+  .menu-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    border: 1px solid var(--border);
+  }
+  .menu-category { display: none; }
+  .menu-category.active { display: contents; }
+  .menu-item {
+    padding: 1rem 1.25rem;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1rem; transition: background 0.15s;
+  }
+  .menu-item:hover { background: var(--brown-xlight); }
+  .menu-item-name { font-size: 0.875rem; font-weight: 400; }
+  .menu-item-note { font-size: 0.75rem; color: var(--muted); margin-top: 0.1rem; font-weight: 300; }
+  .menu-item-price {
+    font-family: var(--font-display);
+    font-size: 1.05rem; font-weight: 600;
+    color: var(--brown); white-space: nowrap;
+  }
+  .menu-cta { margin-top: 1.75rem; font-size: 0.875rem; color: var(--muted); }
+  .menu-cta a { color: var(--brown); text-decoration: none; font-weight: 500; }
+
+  /* ── PACKAGES ── */
+  #packages { background: var(--espresso); position: relative; overflow: hidden; }
+  #packages .section-eyebrow { color: var(--brown-mid); }
+  #packages .section-eyebrow::before { background: var(--brown-mid); }
+  #packages .section-title { color: rgba(255,255,255,0.93); }
+  #packages .section-sub { color: rgba(255,255,255,0.45); }
+  .packages-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem; margin-top: 3.5rem;
+  }
+  .package-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 4px; padding: 2.25rem 2rem;
+    position: relative; transition: background 0.2s;
+  }
+  .package-card:hover { background: rgba(255,255,255,0.07); }
+  .package-card.featured { background: var(--brown); border-color: var(--brown); }
+  .package-badge {
+    position: absolute; top: -11px; left: 2rem;
+    background: var(--brown-mid); color: #fff;
+    font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.28rem 0.75rem; border-radius: 3px;
+  }
+  .package-name {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1rem;
+  }
+  .package-card.featured .package-name { color: rgba(255,255,255,0.7); }
+  .package-price {
+    font-family: var(--font-display);
+    font-size: 3rem; font-weight: 700; color: #fff; line-height: 1; margin-bottom: 0.25rem;
+  }
+  .package-unit { font-size: 0.78rem; color: rgba(255,255,255,0.38); margin-bottom: 1.75rem; font-weight: 300; }
+  .package-card.featured .package-unit { color: rgba(255,255,255,0.65); }
+  .package-divider { height: 1px; background: rgba(255,255,255,0.1); margin-bottom: 1.5rem; }
+  .package-card.featured .package-divider { background: rgba(255,255,255,0.2); }
+  .package-features { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 2rem; }
+  .package-features li {
+    font-size: 0.845rem; color: rgba(255,255,255,0.6); font-weight: 300;
+    padding-left: 1.1rem; position: relative;
+  }
+  .package-features li::before { content: '—'; position: absolute; left: 0; color: var(--brown-mid); font-size: 0.7rem; }
+  .package-card.featured .package-features li { color: rgba(255,255,255,0.82); }
+  .package-card.featured .package-features li::before { color: rgba(255,255,255,0.7); }
+  .btn-package {
+    display: block; text-align: center; padding: 0.7rem; border-radius: 4px;
+    font-size: 0.845rem; font-weight: 500; text-decoration: none; transition: all 0.2s;
+    border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.75);
+    font-family: var(--font-body);
+  }
+  .btn-package:hover { background: rgba(255,255,255,0.1); }
+  .package-card.featured .btn-package { background: rgba(255,255,255,0.93); color: var(--brown); border-color: transparent; }
+  .package-card.featured .btn-package:hover { background: #fff; }
+
+  /* ── DELIVERY ── */
+  #delivery {
+    background: var(--cream);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: center;
+  }
+  .delivery-map {
+    background: var(--espresso); border-radius: 4px; min-height: 380px;
+    position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;
+  }
+  .delivery-map::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--brown-mid);
+  }
+  .delivery-map-inner { text-align: center; padding: 2.5rem; }
+  .delivery-map-pin { font-size: 2.75rem; display: block; margin-bottom: 1.1rem; }
+  .delivery-map-addr { color: rgba(255,255,255,0.9); font-size: 1.1rem; font-weight: 500; margin-bottom: 0.4rem; }
+  .delivery-map-city { color: rgba(255,255,255,0.4); font-size: 0.85rem; font-weight: 300; }
+  .delivery-map-btn {
+    display: inline-block; margin-top: 1.5rem; padding: 0.6rem 1.4rem;
+    background: var(--brown); color: #fff; border-radius: 4px;
+    font-size: 0.845rem; font-weight: 500; text-decoration: none;
+    transition: opacity 0.2s; font-family: var(--font-body);
+  }
+  .delivery-map-btn:hover { opacity: 0.85; }
+  .delivery-details { display: flex; flex-direction: column; margin-top: 2.5rem; }
+  .delivery-item {
+    display: flex; gap: 1.25rem; align-items: flex-start;
+    padding: 1.25rem 0; border-bottom: 1px solid var(--border);
+  }
+  .delivery-item:last-child { border-bottom: none; }
+  .delivery-label {
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--brown); min-width: 100px; padding-top: 2px;
+  }
+  .delivery-item h4 { font-size: 0.9rem; font-weight: 500; margin-bottom: 0.15rem; }
+  .delivery-item p { font-size: 0.83rem; color: var(--muted); font-weight: 300; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--warm-white); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 7rem; margin-top: 3.5rem; }
+  .contact-info { display: flex; flex-direction: column; }
+  .contact-block { padding: 1rem 0; border-bottom: 1px solid var(--border); }
+  .contact-block:first-child { border-top: 1px solid var(--border); }
+  .contact-block label {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--muted); font-weight: 500; display: block; margin-bottom: 0.3rem;
+  }
+  .contact-block p { font-size: 0.9rem; font-weight: 400; }
+  .contact-block a { color: var(--brown); text-decoration: none; }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.02em; }
+  .form-group input, .form-group select, .form-group textarea {
+    padding: 0.7rem 0.95rem; border: 1px solid var(--border); border-radius: 4px;
+    font-family: var(--font-body); font-size: 0.875rem; font-weight: 300;
+    background: var(--warm-white); color: var(--espresso);
+    transition: border-color 0.2s; outline: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--brown); }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+  .form-submit {
+    background: var(--espresso); color: var(--cream);
+    border: none; padding: 0.8rem 2rem; border-radius: 4px;
+    font-family: var(--font-body); font-size: 0.875rem; font-weight: 500;
+    cursor: pointer; transition: opacity 0.2s; align-self: flex-start;
+  }
+  .form-submit:hover { opacity: 0.82; }
+  .form-note { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
+  .form-note a { color: var(--brown); text-decoration: none; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--espresso); padding: 2rem 7vw;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-logo { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: rgba(255,255,255,0.88); text-decoration: none; }
+  .footer-logo span { color: var(--brown-mid); }
+  .footer-links { display: flex; gap: 1.75rem; }
+  .footer-links a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+  .footer-links a:hover { color: rgba(255,255,255,0.7); }
+  .footer-halal { background: rgba(160,103,58,0.18); color: var(--brown-mid); padding: 0.28rem 0.75rem; border-radius: 3px; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+  .footer-meta { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 820px) {
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 4rem 6vw 3rem; }
+    .hero-right { min-height: 260px; }
+    #story, #delivery { grid-template-columns: 1fr; gap: 3rem; }
+    .story-visual { min-height: 280px; }
+    .packages-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .menu-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    section { padding: 4.5rem 6vw; }
+    footer { flex-direction: column; text-align: center; }
+    .footer-links { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Shahina<span>.</span>Delights</a>
+  <ul class="nav-links">
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#delivery">Delivery</a></li>
+    <li><a href="#contact" class="nav-cta">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <span class="hero-badge">West African · Indian · Catering · Richmond Hill</span>
+    <h1 class="hero-title">
+      A table set<br/>with <em>warmth,</em><br/>served with care.
+    </h1>
+    <p class="hero-sub">
+      Hand-folded samosas, slow-simmered curries, mandazi fresh from the kitchen —
+      brought to your office, campus or celebration.
+    </p>
+    <div class="hero-actions">
+      <a href="#packages" class="btn-primary">See Packages</a>
+      <a href="#contact" class="btn-outline">Book an Event</a>
+    </div>
+    <div class="hero-stats">
+      <div><span class="hero-stat-val">100%</span><p class="hero-stat-label">Halal certified</p></div>
+      <div><span class="hero-stat-val">10+</span><p class="hero-stat-label">Years cooking</p></div>
+      <div><span class="hero-stat-val">500+</span><p class="hero-stat-label">Events served</p></div>
+    </div>
+  </div>
+  </section>
+
+<!-- QUICK NAV -->
+<section id="quicknav" style="padding:0;background:var(--espresso);border-top:1px solid rgba(255,255,255,0.06);">
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);">
+    <a href="#menu" class="qn-card">
+      <span class="qn-num">01</span>
+      <span class="qn-title">Menu</span>
+      <span class="qn-sub">Starters, mains, sides & drinks</span>
+      <span class="qn-arrow">↓</span>
+    </a>
+    <a href="#packages" class="qn-card">
+      <span class="qn-num">02</span>
+      <span class="qn-title">Packages</span>
+      <span class="qn-sub">Student, tray & event catering</span>
+      <span class="qn-arrow">↓</span>
+    </a>
+    <a href="#delivery" class="qn-card">
+      <span class="qn-num">03</span>
+      <span class="qn-title">Delivery</span>
+      <span class="qn-sub">Hours, zones & flat-rate fee</span>
+      <span class="qn-arrow">↓</span>
+    </a>
+    <a href="#contact" class="qn-card qn-highlight">
+      <span class="qn-num">04</span>
+      <span class="qn-title">Order / Book</span>
+      <span class="qn-sub">Send an inquiry or call us</span>
+      <span class="qn-arrow">↓</span>
+    </a>
+  </div>
+</section>
+
+<style>
+  .qn-card {
+    display: flex; flex-direction: column; gap: 0.3rem;
+    padding: 2rem 2.25rem;
+    border-right: 1px solid rgba(255,255,255,0.07);
+    text-decoration: none;
+    transition: background 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .qn-card:last-child { border-right: none; }
+  .qn-card:hover { background: rgba(255,255,255,0.05); }
+  .qn-highlight { background: var(--brown); }
+  .qn-highlight:hover { background: var(--brown-mid); }
+  .qn-num { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; color: rgba(255,255,255,0.3); }
+  .qn-highlight .qn-num { color: rgba(255,255,255,0.55); }
+  .qn-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem; font-weight: 600;
+    color: rgba(255,255,255,0.88); line-height: 1.1;
+  }
+  .qn-highlight .qn-title { color: #fff; }
+  .qn-sub { font-size: 0.78rem; color: rgba(255,255,255,0.35); font-weight: 300; margin-top: 0.15rem; }
+  .qn-highlight .qn-sub { color: rgba(255,255,255,0.65); }
+  .qn-arrow {
+    position: absolute; bottom: 1.5rem; right: 1.75rem;
+    font-size: 1rem; color: rgba(255,255,255,0.2);
+    transition: transform 0.2s, color 0.2s;
+  }
+  .qn-card:hover .qn-arrow { transform: translateY(3px); color: rgba(255,255,255,0.5); }
+  .qn-highlight .qn-arrow { color: rgba(255,255,255,0.5); }
+
+  @media (max-width: 820px) {
+    #quicknav > div { grid-template-columns: 1fr 1fr; }
+    .qn-card { border-bottom: 1px solid rgba(255,255,255,0.07); }
+  }
+  @media (max-width: 480px) {
+    #quicknav > div { grid-template-columns: 1fr; }
+  }
+</style>
+
+<!-- STORY -->
+<section id="story">
+  <div class="story-visual">
+    <div class="story-quote">
+      <span class="story-quote-mark">"</span>
+      <p>We cook like we cook for family — because most of the time, we are.</p>
+    </div>
+  </div>
+  <div>
+    <p class="section-eyebrow">Our Story</p>
+    <h2 class="section-title">Family recipes,<br/>plated for your gathering.</h2>
+    <p class="section-sub">Every tray that leaves our kitchen begins the night before — marinades resting, spices toasting, dough proofing. From a quick four-serving order to a full wedding spread, you get the same hand-made care.</p>
+    <div class="story-pillars">
+      <div class="story-pillar"><span class="story-pillar-num">01</span><div><h4>Always halal</h4><p>Every ingredient is 100% halal certified — no exceptions, every order.</p></div></div>
+      <div class="story-pillar"><span class="story-pillar-num">02</span><div><h4>Made fresh to order</h4><p>We don't batch cook in advance. Your order is prepared fresh, every time.</p></div></div>
+      <div class="story-pillar"><span class="story-pillar-num">03</span><div><h4>Two culinary traditions</h4><p>West African warmth meets South Asian spice — one truly unique kitchen.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="menu-header">
+    <div>
+      <p class="section-eyebrow">Full Menu</p>
+      <h2 class="section-title">Slow food, deep flavor.</h2>
+    </div>
+    <p class="section-sub" style="max-width:280px;">Every dish made fresh to order. Custom trays available on request.</p>
+  </div>
+
+  <div class="menu-tabs">
+    <button class="menu-tab active" onclick="switchTab(this,'starters')">Starters</button>
+    <button class="menu-tab" onclick="switchTab(this,'mains')">Mains</button>
+    <button class="menu-tab" onclick="switchTab(this,'chinese')">Chinese Twist</button>
+    <button class="menu-tab" onclick="switchTab(this,'italian')">Italian</button>
+    <button class="menu-tab" onclick="switchTab(this,'western')">Western</button>
+    <button class="menu-tab" onclick="switchTab(this,'sides')">Sides</button>
+    <button class="menu-tab" onclick="switchTab(this,'drinks')">Drinks</button>
+  </div>
+
+  <div class="menu-grid">
+    <div class="menu-category active" id="cat-starters">
+      <div class="menu-item"><div><div class="menu-item-name">Frozen Samosas</div><div class="menu-item-note">20 pc</div></div><div class="menu-item-price">$25</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Frozen Spring Rolls</div><div class="menu-item-note">10 pc</div></div><div class="menu-item-price">$12</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Cutlet</div></div><div class="menu-item-price">$3</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Kebab</div></div><div class="menu-item-price">$3</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Kebab & Roti with Carrots</div></div><div class="menu-item-price">$6</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Kebab Rolls</div></div><div class="menu-item-price">$10</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Packed Potatoes</div><div class="menu-item-note">10 pc</div></div><div class="menu-item-price">$10</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Bhajias</div><div class="menu-item-note">10 pc</div></div><div class="menu-item-price">$10</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Stuffed Parathas</div><div class="menu-item-note">5 pc</div></div><div class="menu-item-price">$25</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Pies</div></div><div class="menu-item-price">$3.50</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Fried Cassava</div><div class="menu-item-note">5 pc</div></div><div class="menu-item-price">$10</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Mandazi</div></div><div class="menu-item-price">$1.50</div></div>
+    </div>
+
+    <div class="menu-category" id="cat-mains">
+      <div class="menu-item"><div><div class="menu-item-name">Biryani</div></div><div class="menu-item-price">$15</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Butter Chicken</div></div><div class="menu-item-price">$12</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Lentil Curry</div></div><div class="menu-item-price">$10</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Spinach Curry</div></div><div class="menu-item-price">$10</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Nihari</div></div><div class="menu-item-price">$12</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Muthya</div></div><div class="menu-item-price">$15</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Pilau</div></div><div class="menu-item-price">$10</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Jheera Chicken</div></div><div class="menu-item-price">$12</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Paya & Naan</div></div><div class="menu-item-price">$12</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Coconut Chicken Curry</div></div><div class="menu-item-price">$12</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Zanzibar Mix</div></div><div class="menu-item-price">$10</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Mandazi & Bhajia</div></div><div class="menu-item-price">$10</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Spanish Rice & Chicken</div></div><div class="menu-item-price">$12</div></div>
+    </div>
+
+    <div class="menu-category" id="cat-chinese">
+      <div class="menu-item" style="grid-column:1/-1;background:var(--brown-xlight);border-color:transparent;padding:0.6rem 1.25rem;">
+        <span style="font-size:0.75rem;color:var(--muted);font-weight:300;">Served with fried rice or noodles</span>
+      </div>
+      <div class="menu-item"><div><div class="menu-item-name">Sweet & Sour Chicken</div></div><div class="menu-item-price">$12</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Chili Chicken</div></div><div class="menu-item-price">$12</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Manchurian Chicken</div></div><div class="menu-item-price">$12</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Chilli Beef</div></div><div class="menu-item-price">$12</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Schezwan Beef</div></div><div class="menu-item-price">$12</div></div>
+    </div>
+
+    <div class="menu-category" id="cat-italian">
+      <div class="menu-item"><div><div class="menu-item-name">Pizza — Large</div><div class="menu-item-note">Choose your toppings</div></div><div class="menu-item-price">$22</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Pizza — Medium</div><div class="menu-item-note">Choose your toppings</div></div><div class="menu-item-price">$20</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Chicken Wings</div></div><div class="menu-item-price">$12</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Lasagna</div></div><div class="menu-item-price">$12</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Pasta</div></div><div class="menu-item-price">$9</div></div>
+    </div>
+
+    <div class="menu-category" id="cat-western">
+      <div class="menu-item"><div><div class="menu-item-name">Burger & Fries</div><div class="menu-item-note">Beef or Chicken</div></div><div class="menu-item-price">$12</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Philly Cheese Steak</div></div><div class="menu-item-price">$12</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Chicken Subs</div></div><div class="menu-item-price">$12</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Pepper Steak</div></div><div class="menu-item-price">$12</div></div>
+    </div>
+
+    <div class="menu-category" id="cat-sides">
+      <div class="menu-item"><div><div class="menu-item-name">Plain Fries</div></div><div class="menu-item-price">$5</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Peri Peri Fries</div></div><div class="menu-item-price">$6</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Masala Fries</div></div><div class="menu-item-price">$8</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Poutine Fries</div></div><div class="menu-item-price">$8</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Butter Naan</div></div><div class="menu-item-price">$15</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Garlic Naan</div></div><div class="menu-item-price">$15</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Whole Wheat Roti</div></div><div class="menu-item-price">$6</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Rice</div></div><div class="menu-item-price">$4</div></div>
+    </div>
+
+    <div class="menu-category" id="cat-drinks">
+      <div class="menu-item"><div><div class="menu-item-name">Lemon & Mint Juice</div></div><div class="menu-item-price">$5</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Strawberry Juice</div></div><div class="menu-item-price">$5</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Watermelon Juice</div></div><div class="menu-item-price">$5</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Lemonade</div></div><div class="menu-item-price">$5</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Pineapple & Mint Juice</div></div><div class="menu-item-price">$5</div></div>
+    </div>
+  </div>
+
+  <p class="menu-cta">Planning something big? <a href="tel:6474466029">Call 647-446-6029</a> to plan your custom catering menu.</p>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages">
+  <p class="section-eyebrow">Catering Packages</p>
+  <h2 class="section-title">Built for every table.</h2>
+  <p class="section-sub">From the student grabbing a quick lunch to a 200-guest wedding — pick a package or talk to us about a custom menu.</p>
+  <div class="packages-grid">
+    <div class="package-card">
+      <p class="package-name">Student Special</p>
+      <p class="package-price">$10<span style="font-size:1.1rem;font-weight:300;color:rgba(255,255,255,0.35);">+</span></p>
+      <p class="package-unit">per serving</p>
+      <div class="package-divider"></div>
+      <ul class="package-features">
+        <li>Pilau rice bowl</li>
+        <li>Curry or grilled chicken</li>
+        <li>Mandazi or chapati side</li>
+        <li>Student ID discount</li>
+      </ul>
+      <a href="#contact" class="btn-package">Order now →</a>
+    </div>
+    <div class="package-card featured">
+      <div class="package-badge">Most popular</div>
+      <p class="package-name">Four-Serving Tray</p>
+      <p class="package-price">$48</p>
+      <p class="package-unit">feeds 4 people</p>
+      <div class="package-divider"></div>
+      <ul class="package-features">
+        <li>Pilau or biryani base</li>
+        <li>Goat or chicken curry</li>
+        <li>Samosas & chapati</li>
+        <li>Mandazi for dessert</li>
+      </ul>
+      <a href="#contact" class="btn-package">Order now →</a>
+    </div>
+    <div class="package-card">
+      <p class="package-name">Event Catering</p>
+      <p class="package-price" style="font-size:2.2rem;">Custom</p>
+      <p class="package-unit">20+ guests</p>
+      <div class="package-divider"></div>
+      <ul class="package-features">
+        <li>Tailored menu planning</li>
+        <li>West African & Indian classics</li>
+        <li>Setup & service staff</li>
+        <li>Dessert table options</li>
+      </ul>
+      <a href="#contact" class="btn-package">Get a quote →</a>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERY -->
+<section id="delivery">
+  <div class="delivery-map">
+    <div class="delivery-map-inner">
+      <span class="delivery-map-pin">📍</span>
+      <p class="delivery-map-addr">Richmond Hill</p>
+      <p class="delivery-map-city">Ontario, Canada</p>
+      <a href="https://maps.google.com/?q=Richmond+Hill,+ON" target="_blank" class="delivery-map-btn">Get Directions</a>
+    </div>
+  </div>
+  <div>
+    <p class="section-eyebrow">Delivery</p>
+    <h2 class="section-title">We deliver<br/>across the city.</h2>
+    <p class="section-sub">Hot, fresh and on time — straight from our kitchen to your door.</p>
+    <div class="delivery-details">
+      <div class="delivery-item"><span class="delivery-label">Flat fee</span><div><h4>$15 delivery</h4><p>One simple rate anywhere we deliver. Pickup always free at our kitchen.</p></div></div>
+      <div class="delivery-item"><span class="delivery-label">Hours</span><div><h4>Tue – Sun · 11am – 8:30pm</h4><p>Same-week orders welcome, subject to availability.</p></div></div>
+      <div class="delivery-item"><span class="delivery-label">Minimum</span><div><h4>$30 for delivery</h4><p>Outside the standard zone? Call 647-446-6029 — we'll do our best to accommodate.</p></div></div>
+      <div class="delivery-item"><span class="delivery-label">Large events</span><div><h4>2 weeks lead time</h4><p>For 50+ guest events, please reach out at least two weeks in advance.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-eyebrow">Get in touch</p>
+  <h2 class="section-title">Let's plan your next gathering.</h2>
+  <p class="section-sub">Tell us about your event and we'll get back with a custom menu and quote within 24 hours.</p>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-block"><label>Call or text</label><p><a href="tel:6474466029">647-446-6029</a></p></div>
+      <div class="contact-block"><label>Email</label><p><a href="mailto:shahina2979@hotmail.com">shahina2979@hotmail.com</a></p></div>
+      <div class="contact-block"><label>Location</label><p>Richmond Hill, Ontario</p></div>
+      <div class="contact-block"><label>Kitchen hours</label><p>Tue – Sun · 10am – 9pm</p></div>
+      <div class="contact-block"><label>Lead time</label><p>Large events (50+ guests) need 2 weeks notice. Same-week orders welcome.</p></div>
+    </div>
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group"><label for="name">Your name</label><input id="name" type="text" placeholder="Amira Hassan" required /></div>
+        <div class="form-group"><label for="phone">Phone number</label><input id="phone" type="tel" placeholder="416-555-0100" /></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label for="date">Event date</label><input id="date" type="date" /></div>
+        <div class="form-group"><label for="guests">Number of guests</label><input id="guests" type="number" placeholder="25" min="1" /></div>
+      </div>
+      <div class="form-group">
+        <label for="pkg">Package interest</label>
+        <select id="pkg">
+          <option value="">Select a package…</option>
+          <option>Student Special</option>
+          <option>Four-Serving Tray</option>
+          <option>Event Catering (20+ guests)</option>
+          <option>Custom / Not sure yet</option>
+        </select>
+      </div>
+      <div class="form-group"><label for="message">Tell us about your event</label><textarea id="message" placeholder="Wedding reception, office lunch, birthday celebration…"></textarea></div>
+      <button type="submit" class="form-submit">Send Inquiry</button>
+      <p class="form-note">We'll confirm by phone or email within 24 hours. Or call us at <a href="tel:6474466029">647-446-6029</a>.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">Shahina<span>.</span>Delights</a>
+  <nav class="footer-links">
+    <a href="#menu">Menu</a>
+    <a href="#packages">Packages</a>
+    <a href="#delivery">Delivery</a>
+    <a href="#contact">Book</a>
+  </nav>
+  <span class="footer-halal">100% Halal</span>
+  <span class="footer-meta">© 2026 Shahina Delights · Richmond Hill, ON</span>
+</footer>
+
+<script>
+function scrollTo(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+// Intercept all anchor clicks that point to #section IDs
+document.addEventListener('click', function(e) {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a) return;
+  e.preventDefault();
+  const id = a.getAttribute('href').slice(1);
+  if (!id) { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+});
+
+function switchTab(btn, cat) {
+  document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.menu-category').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('cat-' + cat).classList.add('active');
+}
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = "Sent — we'll be in touch soon.";
+  btn.style.opacity = '0.6';
+  btn.disabled = true;
+}
+</script>
+</body>
+</html>
