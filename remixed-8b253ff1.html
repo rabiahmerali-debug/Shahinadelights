@@ -780,7 +780,7 @@ function handleSubmit(e) {
 💬 Message: ${message}`;
 
   const whatsappURL = `https://wa.me/16476156029?text=${encodeURIComponent(text)}`;
-  window.open(whatsappURL, '_blank');
+  window.location.href = whatsappURL;
 }
 </script>
 </body>
