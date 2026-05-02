@@ -694,7 +694,7 @@
   <p class="section-sub">Tell us about your event and we'll get back with a custom menu and quote within 24 hours.</p>
   <div class="contact-grid">
     <div class="contact-info">
-      <div class="contact-block"><label>Call or text</label><p><a href="tel:6474466029">647-446-6029</a></p></div>
+      <div class="contact-block"><label>Call or text</label><p><a href="tel:6476145260">647-614-5260</a></p></div>
       <div class="contact-block"><label>Email</label><p><a href="mailto:shahina2979@hotmail.com">shahina2979@hotmail.com</a></p></div>
       <div class="contact-block"><label>Location</label><p>Richmond Hill, Ontario</p></div>
       <div class="contact-block"><label>Kitchen hours</label><p>Tue – Sun · 10am – 9pm</p></div>
